@@ -3,7 +3,7 @@
 node('linux') {
 	def projectName = "snippet-comparison"
 	def buildVersion = ""
-	def branchName = ""
+	def branchName = "" 
 	try {
 		def jdkHome = installTool "jdk1.8.0_141"
 		def mvnHome = installTool "apache-maven-3.3.9"
