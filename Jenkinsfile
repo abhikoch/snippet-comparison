@@ -34,7 +34,6 @@ node {
 	}catch (Exception e) {
 		println "★★★ In Exception ★★★ "
 		currentBuild.result = 'FAILURE'
-		}
 	} finally {
 		onComplete {
 			notifyStash()
