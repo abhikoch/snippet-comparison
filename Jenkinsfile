@@ -4,9 +4,15 @@ node {
 	def projectName = "snippet-comparison"
 	def buildVersion = ""
 	def branchName = ""
+	def jdkHome = installTool "jdk1.8.0_141"
+	def mvnHome = installTool "apache-maven-3.3.9"
+	def gitShortCommitID = null;
 
 	stage('Checkout Source Code') {
 		println " ************** Stage: Running Checkout Source Code ************** "
+		checkout scm
+		gitShortommitID = gitCommitShortHash()
+		notifyStash()
 	}
 
 	stage('Build') {
