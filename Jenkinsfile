@@ -6,7 +6,7 @@ node {
 	def branchName = ""
 	//def jdkHome = installTool "jdk1.8.0_141"
 	//def mvnHome = installTool "apache-maven-3.3.9"
-	def jdkHome = "C:\Program Files\Java\jdk1.8.0_271"
+	def jdkHome = "C:\\Program Files\\Java\\jdk1.8.0_271"
 
 	stage('Checkout Source Code') {
 		println " ************** Stage: Running Checkout Source Code ************** "
