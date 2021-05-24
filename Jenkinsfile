@@ -1,4 +1,4 @@
-#!/usr/bin/env groovy
+#!groovy
 
 node {
 	def projectName = "snippet-comparison"
@@ -10,7 +10,7 @@ node {
 	stage('Checkout Source Code') {
 		println " ************** Stage: Running Checkout Source Code ************** "
 		checkout scm
-		notifyStash()
+		sh "./mvnw clean install -DskipTests"
 	}
 
 	stage('Build') {
