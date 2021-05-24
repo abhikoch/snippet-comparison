@@ -16,18 +16,22 @@ node {
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
 		withEnv(["JAVA_HOME=${jdkHome}"]) {
-					bat "mvnw clean compile"
+			bat "mvnw clean compile"
 		}
 	}
 
 	stage('Unit Test') {
 		println " ************** Stage: Build the Unit Test and SonarQube ************** "
-		bat "mvnw clean test"
+		withEnv(["JAVA_HOME=${jdkHome}"]) {
+			bat "mvnw clean test"
+		}
 	}
 
 	stage('Package') {
 		println " ************** Stage: Package of the Code ************** "
-		bat "mvnw package"
+		withEnv(["JAVA_HOME=${jdkHome}"]) {
+			bat "mvnw package"
+		}
 	}
 
 	stage('Comment On Pull Request') {
