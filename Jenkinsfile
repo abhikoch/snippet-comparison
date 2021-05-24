@@ -6,6 +6,7 @@ node {
 	def branchName = ""
 	//def jdkHome = installTool "jdk1.8.0_141"
 	//def mvnHome = installTool "apache-maven-3.3.9"
+	def jdkHome = "C:\Program Files\Java\jdk1.8.0_271"
 
 	stage('Checkout Source Code') {
 		println " ************** Stage: Running Checkout Source Code ************** "
@@ -14,7 +15,9 @@ node {
 
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
-		bat "mvnw clean compile"
+		withEnv(["JAVA_HOME=${jdkHome}") {
+					bat "mvnw clean compile"
+		}
 	}
 
 	stage('Unit Test') {
