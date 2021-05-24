@@ -14,7 +14,7 @@ node {
 
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
-		sh "mvnw clean compile"
+		sh "./mvnw clean compile"
 	}
 
 	stage('Unit Test') {
