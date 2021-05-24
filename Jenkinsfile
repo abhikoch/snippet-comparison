@@ -10,20 +10,21 @@ node {
 	stage('Checkout Source Code') {
 		println " ************** Stage: Running Checkout Source Code ************** "
 		checkout scm
-		sh "./mvnw clean install -DskipTests"
 	}
 
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
-
+		sh "mvn clean compile"
 	}
 
 	stage('Unit Test') {
 		println " ************** Stage: Build the Unit Test and SonarQube ************** "
+		sh "mvn clean test"
 	}
 
 	stage('Package') {
 		println " ************** Stage: Package of the Code ************** "
+		sh "mvn package"
 	}
 
 	stage('Comment On Pull Request') {
