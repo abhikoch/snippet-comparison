@@ -14,17 +14,17 @@ node {
 
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
-		sh "./mvnw clean compile"
+		bat "mvnw clean compile"
 	}
 
 	stage('Unit Test') {
 		println " ************** Stage: Build the Unit Test and SonarQube ************** "
-		sh "mvnw clean test"
+		bat "mvnw clean test"
 	}
 
 	stage('Package') {
 		println " ************** Stage: Package of the Code ************** "
-		sh "mvnw package"
+		bat "mvnw package"
 	}
 
 	stage('Comment On Pull Request') {
