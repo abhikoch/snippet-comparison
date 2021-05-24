@@ -15,7 +15,7 @@ node {
 
 	stage('Build') {
 		println " ************** Stage: Build the Code ************** "
-		withEnv(["JAVA_HOME=${jdkHome}") {
+		withEnv(["JAVA_HOME=${jdkHome}"]) {
 					bat "mvnw clean compile"
 		}
 	}
